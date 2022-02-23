@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+
+    <header class="container d-flex justify-content-center align-items-center">
+        <div class="w-75">
+            <h1>
+                Inscription
+            </h1>            
+            
+            {{ form_start(registrationForm) }}
+            <div class="row">
+
+            <fieldset class="my-3 col-6">
+                <legend>
+                    Identité
+                </legend>
+                {{ form_row(registrationForm.firstname) }}
+                {{ form_row(registrationForm.lastname) }}
+            </fieldset>
+            <fieldset class="my-3 col-6">
+                <legend>
+                    Coordonnées
+                </legend>
+                {{ form_row(registrationForm.address) }}
+                {{ form_row(registrationForm.zipcode) }}
+                {{ form_row(registrationForm.city) }}
+
+            </fieldset>
+
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            <div class="my-3">            
+            {{ form_row(registrationForm.RGPDConsent) }}
+            </div>
+
+            <button type="submit" class="btn btn-info my-3">
+                Register
+            </button>
+            </div>
+            {{ form_end(registrationForm) }}
+            
+            
+
+        </div>
+    </header>
+{% endblock %}
