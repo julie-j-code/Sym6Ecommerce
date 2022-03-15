@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductsController!{% endblock %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="w-75">
+
+        <h1>{{ controller_name }}! ✅</h1>
+        <div class="card my-5">
+            <div class="card-header">
+                {{products.name}}
+            </div>
+            <div class="card-body">
+                {{products.description}}
+            </div>
+            <div class="card-footer">
+                Prix : {{products.price}}€ - Stock : {{products.stock}}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
