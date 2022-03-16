@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="w-75">
+
+        <h1>{{ controller_name }}! ✅</h1>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Id </th>
+                    <th>Référence</th>
+                    <th>Date</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+
+                <tr>
+                    <td>{{order.id}}</td>
+                    <td>{{order.reference}}</td>
+                    <td>{{order.createdAt}}</td>
+                    <td>
+                        {% for detail in order.ordersDetails %}
+                        {{order.ordersDetails}} <br>
+                        {% endfor %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+{% endblock %}
