@@ -7,6 +7,7 @@ use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 
 #[ORM\Entity(repositoryClass: CategoriesRepository::class)]
 class Categories
@@ -29,6 +30,9 @@ class Categories
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
     private $categories;
+
+    #[ORM\Column(type: 'integer')]
+    private $categoryOrder;
 
     #[ORM\OneToMany(mappedBy: 'categories', targetEntity: Products::class)]
     private $products;
@@ -94,6 +98,18 @@ class Categories
                 $category->setParent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategoryOrders(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoriesOrders(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
 
         return $this;
     }

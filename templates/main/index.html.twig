@@ -4,15 +4,45 @@
 
 {% block body %}
 
-<div class="container d-flex justify-content-center align-items-center mt-5"> 
-    <div class="w-75">
+<div class="container mt-5">
+    <div class="w-75 py-5">
 
         <h1>Site Ecommerce Symfony6</h1>
-        
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nemo ratione sed sint veniam aspernatur ad laudantium quam a officia obcaecati id voluptas corporis, mollitia atque quae voluptatum quod voluptatem.</p>
 
-    </div>   
+        <p class="pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nemo ratione sed sint veniam aspernatur ad
+            laudantium quam a officia obcaecati id voluptas corporis, mollitia atque quae voluptatum quod voluptatem.
+        </p>
+
+    </div>
+
+
+    <div class="row w-75 mb-5">
+        {# <h2 class="my-5">Categories</h2> #}
+
+        {% for category in categories %}
+        {% if category.parent is same as null %}
+        <div class="col-12">
+            <h3 class="my-5"><a class="text-decoration-none text-dark" href="{{path('category', {slug:category.slug})}}">
+                {{category.name}}
+            </a>
+            </h3>
+        </div>
+        {% else %}
+        <div class="col-4 mb-4">
+            <h4 class="text-secondary">
+                {{category.name}}
+            </h4>
+
+                <a class="btn btn-info text-white text-no-decoration" href="{{path('category', {slug:category.slug})}}">Voir les produits</a>
+
+        </div>
+
+
+        {% endif %}
+
+        {% endfor %}
+    </div>
+</div>
 
 </div>
 {% endblock %}
-
