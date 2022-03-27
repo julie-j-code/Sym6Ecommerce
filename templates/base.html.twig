@@ -23,9 +23,13 @@
     <body>
        {{ include('_partials/_nav.html.twig') }}
 
-        {% block body %}
-        
-        {% endblock %}
+       <div class="container">
+
+           {% block body %}
+           
+           {% endblock %}
+       </div>
+
        {{ include('_partials/_footer.html.twig') }}
 
     </body>
