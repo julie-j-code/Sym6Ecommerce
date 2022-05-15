@@ -30,6 +30,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\Column(type: 'string', length:100)]
+    private $resetToken = false;
+
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
@@ -90,6 +93,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $is_verified): ?self
     {
         $this->isVerified = $is_verified;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(string $resetToken): ?self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
